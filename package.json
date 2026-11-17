@@ -1,0 +1,16 @@
+{
+  "name": "ai-civicfix",
+  "version": "1.0.0",
+  "description": "AI-Powered Civic Problem Reporting & Resolution Platform",
+  "type": "module",
+  "scripts": {
+    "dev": "node run-all.js",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "node run-all.js",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": ["civic", "ai", "yolo", "threejs", "smart-city"],
+  "author": "AI CivicFix Team",
+  "license": "MIT"
+}
