@@ -18,9 +18,10 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL;
 
 // Middleware
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: CLIENT_URL && CLIENT_URL !== '*' ? CLIENT_URL.split(',') : '*' }));
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
@@ -54,10 +55,18 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`\n======================================================`);
   console.log(`🚀 AI CivicFix Backend running at: http://localhost:${PORT}`);
   console.log(`📡 Health Check: http://localhost:${PORT}/api/health`);
   console.log(`📊 AI & Computer Vision Service: Active`);
   console.log(`======================================================\n`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`⚠️ Port ${PORT} is already in use by another process.`);
+  } else {
+    console.error('Server unexpected error:', err);
+  }
 });

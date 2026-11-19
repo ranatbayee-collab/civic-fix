@@ -116,6 +116,396 @@
   ],
   "complaints": [
     {
+      "id": "CF-6905",
+      "user_id": "usr-admin-1",
+      "reporter_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "category": "pothole",
+      "description": "Deep asphalt crater spanning 1.5 meters on main carriageway.",
+      "image_url": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800",
+      "resolution_image_url": null,
+      "latitude": 20.2961,
+      "longitude": 85.8245,
+      "address": "Near College Road, Jayadev Vihar, Bhubaneswar",
+      "zone": "North Central - Ward 14",
+      "landmark": "Jayadev Vihar / College Road",
+      "severity": "HIGH",
+      "severity_score": 88,
+      "traffic_level": "HIGH",
+      "traffic_score": 80,
+      "nearby_reports_count": 12,
+      "location_importance": "HIGH",
+      "location_score": 85,
+      "priority_score": 81,
+      "priority_band": "HIGH",
+      "priority_breakdown": {
+        "severity": {
+          "value": 88,
+          "weight": "40%",
+          "contribution": 35.2
+        },
+        "traffic": {
+          "value": 85,
+          "weight": "25%",
+          "contribution": 21.3
+        },
+        "reports": {
+          "value": 58,
+          "count": 12,
+          "weight": "20%",
+          "contribution": 11.6
+        },
+        "location": {
+          "value": 85,
+          "weight": "15%",
+          "contribution": 12.8
+        },
+        "is_emergency": false
+      },
+      "status": "AI_VERIFIED",
+      "department": "Road Maintenance",
+      "assigned_to": null,
+      "assigned_worker_name": null,
+      "is_emergency": false,
+      "ai_detection_meta": {
+        "category": "pothole",
+        "confidence": 0.96,
+        "severity": "HIGH",
+        "severity_score": 88,
+        "bounding_boxes": [
+          {
+            "label": "pothole_crater",
+            "confidence": 0.96,
+            "box": [
+              0.32,
+              0.22,
+              0.74,
+              0.78
+            ]
+          }
+        ],
+        "model": "YOLOv8-Civic-v2 (DeepVision Ensemble)",
+        "inference_time_ms": 64,
+        "traffic_estimate": "HIGH",
+        "recommendation": "Dispatch pothole unit within SLA."
+      },
+      "ai_verification_meta": null,
+      "citizen_feedback": null,
+      "created_at": "2026-11-17T14:53:12.467Z",
+      "updated_at": "2026-11-17T14:53:12.467Z",
+      "resolved_at": null
+    },
+    {
+      "id": "CF-7788",
+      "user_id": "usr-admin-1",
+      "reporter_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "category": "pothole",
+      "description": "Deep asphalt crater spanning 1.5 meters on main carriageway.",
+      "image_url": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800",
+      "resolution_image_url": null,
+      "latitude": 20.2961,
+      "longitude": 85.8245,
+      "address": "Near College Road, Jayadev Vihar, Bhubaneswar",
+      "zone": "North Central - Ward 14",
+      "landmark": "Jayadev Vihar / College Road",
+      "severity": "HIGH",
+      "severity_score": 88,
+      "traffic_level": "HIGH",
+      "traffic_score": 80,
+      "nearby_reports_count": 3,
+      "location_importance": "HIGH",
+      "location_score": 85,
+      "priority_score": 75,
+      "priority_band": "HIGH",
+      "priority_breakdown": {
+        "severity": {
+          "value": 88,
+          "weight": "40%",
+          "contribution": 35.2
+        },
+        "traffic": {
+          "value": 85,
+          "weight": "25%",
+          "contribution": 21.3
+        },
+        "reports": {
+          "value": 30,
+          "count": 3,
+          "weight": "20%",
+          "contribution": 6
+        },
+        "location": {
+          "value": 85,
+          "weight": "15%",
+          "contribution": 12.8
+        },
+        "is_emergency": false
+      },
+      "status": "IN_PROGRESS",
+      "department": "Road Maintenance",
+      "assigned_to": null,
+      "assigned_worker_name": null,
+      "is_emergency": false,
+      "ai_detection_meta": {
+        "category": "pothole",
+        "confidence": 0.9,
+        "severity": "HIGH",
+        "severity_score": 88,
+        "bounding_boxes": [
+          {
+            "label": "pothole_crater",
+            "confidence": 0.9,
+            "box": [
+              0.32,
+              0.22,
+              0.74,
+              0.78
+            ]
+          }
+        ],
+        "model": "YOLOv8-Civic-v2 (DeepVision Ensemble)",
+        "inference_time_ms": 46,
+        "traffic_estimate": "HIGH",
+        "recommendation": "Dispatch pothole unit within SLA."
+      },
+      "ai_verification_meta": null,
+      "citizen_feedback": null,
+      "created_at": "2026-11-17T14:21:47.126Z",
+      "updated_at": "2026-11-17T14:52:30.023Z",
+      "resolved_at": null
+    },
+    {
+      "id": "CF-1030",
+      "user_id": "usr-citizen-1",
+      "reporter_name": "Aarav Sharma",
+      "category": "traffic_signal",
+      "description": "Traffic light stuck on blinking amber at busy 4-way crossroad causing chaotic gridlock.",
+      "image_url": "https://images.unsplash.com/photo-1508873696983-2df5293cb32b?w=800",
+      "resolution_image_url": "/uploads/civic-1794927177423-249192265.jpeg",
+      "latitude": 20.2912,
+      "longitude": 85.8285,
+      "address": "Vani Vihar Flyover Junction, Bhubaneswar",
+      "zone": "Central - Ward 11",
+      "severity": "HIGH",
+      "severity_score": 88,
+      "traffic_level": "SEVERE",
+      "traffic_score": 95,
+      "nearby_reports_count": 22,
+      "location_importance": "HIGH",
+      "location_score": 92,
+      "priority_score": 91,
+      "priority_breakdown": {
+        "severity_contrib": 35.2,
+        "traffic_contrib": 23.75,
+        "reports_contrib": 18.5,
+        "location_contrib": 13.8
+      },
+      "status": "VERIFIED",
+      "department": "Traffic Management",
+      "assigned_to": "usr-worker-3",
+      "assigned_worker_name": "Manoj Patra (Electrical Tech)",
+      "is_emergency": false,
+      "ai_detection_meta": {
+        "category": "traffic_signal",
+        "confidence": 0.95,
+        "severity": "HIGH",
+        "bounding_boxes": [
+          {
+            "label": "traffic_light_malfunction",
+            "confidence": 0.95,
+            "box": [
+              0.12,
+              0.35,
+              0.75,
+              0.65
+            ]
+          }
+        ],
+        "model": "YOLOv8-Civic-v2"
+      },
+      "ai_verification_meta": {
+        "verified": true,
+        "resolution_confidence": 0.97,
+        "defect_cleared": true,
+        "detected_artifacts": [],
+        "requires_manual_audit": false,
+        "notes": "Signal cycling through green/amber/red sequence with correct phase timing."
+      },
+      "citizen_feedback": {
+        "confirmed": true,
+        "satisfaction": 5,
+        "comment": "Citizen verified repair quality.",
+        "submitted_at": "2026-11-17T14:53:16.778Z"
+      },
+      "created_at": "2026-11-16T21:20:00.408Z",
+      "updated_at": "2026-11-17T14:53:16.778Z",
+      "resolved_at": "2026-11-17T14:52:57.427Z"
+    },
+    {
+      "id": "CF-1028",
+      "user_id": "usr-citizen-1",
+      "reporter_name": "Aarav Sharma",
+      "category": "fallen_tree",
+      "description": "Large banyan branch snapped across 2 lanes of traffic following heavy thunderstorm winds.",
+      "image_url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800",
+      "resolution_image_url": null,
+      "latitude": 20.3088,
+      "longitude": 85.8312,
+      "address": "Forest Park Road, Unit 1, Bhubaneswar",
+      "zone": "Central West - Ward 21",
+      "severity": "CRITICAL",
+      "severity_score": 95,
+      "traffic_level": "SEVERE",
+      "traffic_score": 95,
+      "nearby_reports_count": 31,
+      "location_importance": "CRITICAL",
+      "location_score": 90,
+      "priority_score": 94,
+      "priority_breakdown": {
+        "severity_contrib": 38,
+        "traffic_contrib": 23.75,
+        "reports_contrib": 20,
+        "location_contrib": 13.5
+      },
+      "status": "IN_PROGRESS",
+      "department": "Disaster & Forest",
+      "assigned_to": "usr-worker-1",
+      "assigned_worker_name": "Rajesh Verma (Road Crew Lead)",
+      "is_emergency": true,
+      "ai_detection_meta": {
+        "category": "fallen_tree",
+        "confidence": 0.97,
+        "severity": "CRITICAL",
+        "bounding_boxes": [
+          {
+            "label": "fallen_tree_blockage",
+            "confidence": 0.97,
+            "box": [
+              0.15,
+              0.1,
+              0.85,
+              0.9
+            ]
+          }
+        ],
+        "model": "YOLOv8-Civic-v2"
+      },
+      "ai_verification_meta": null,
+      "citizen_feedback": null,
+      "created_at": "2026-11-16T18:20:00.408Z",
+      "updated_at": "2026-11-17T14:52:32.774Z",
+      "resolved_at": null
+    },
+    {
+      "id": "CF-1026",
+      "user_id": "usr-citizen-1",
+      "reporter_name": "Aarav Sharma",
+      "category": "water_leak",
+      "description": "Major underground pipe burst. Clean drinking water flooding street into residential apartments.",
+      "image_url": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?w=800",
+      "resolution_image_url": null,
+      "latitude": 20.3155,
+      "longitude": 85.8234,
+      "address": "Near Nalco Square, Chandrasekharpur, Bhubaneswar",
+      "zone": "North Zone - Ward 18",
+      "severity": "CRITICAL",
+      "severity_score": 95,
+      "traffic_level": "HIGH",
+      "traffic_score": 80,
+      "nearby_reports_count": 24,
+      "location_importance": "HIGH",
+      "location_score": 90,
+      "priority_score": 93,
+      "priority_breakdown": {
+        "severity_contrib": 38,
+        "traffic_contrib": 20,
+        "reports_contrib": 20,
+        "location_contrib": 13.5
+      },
+      "status": "IN_PROGRESS",
+      "department": "Water Supply Department",
+      "assigned_to": null,
+      "assigned_worker_name": null,
+      "is_emergency": true,
+      "ai_detection_meta": {
+        "category": "water_leak",
+        "confidence": 0.96,
+        "severity": "CRITICAL",
+        "bounding_boxes": [
+          {
+            "label": "water_leak",
+            "confidence": 0.96,
+            "box": [
+              0.25,
+              0.18,
+              0.9,
+              0.88
+            ]
+          }
+        ],
+        "model": "YOLOv8-Civic-v2"
+      },
+      "ai_verification_meta": null,
+      "citizen_feedback": null,
+      "created_at": "2026-11-16T14:20:00.408Z",
+      "updated_at": "2026-11-17T14:52:37.510Z",
+      "resolved_at": null
+    },
+    {
+      "id": "CF-1029",
+      "user_id": "usr-citizen-1",
+      "reporter_name": "Aarav Sharma",
+      "category": "drainage",
+      "description": "Severely choked stormwater canal overflowing filthy water on pedestrian promenade.",
+      "image_url": "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?w=800",
+      "resolution_image_url": null,
+      "latitude": 20.3201,
+      "longitude": 85.8122,
+      "address": "Damana Square, Patia Main Road, Bhubaneswar",
+      "zone": "North Zone - Ward 6",
+      "severity": "HIGH",
+      "severity_score": 85,
+      "traffic_level": "MEDIUM",
+      "traffic_score": 70,
+      "nearby_reports_count": 14,
+      "location_importance": "HIGH",
+      "location_score": 80,
+      "priority_score": 81,
+      "priority_breakdown": {
+        "severity_contrib": 34,
+        "traffic_contrib": 17.5,
+        "reports_contrib": 17.5,
+        "location_contrib": 12
+      },
+      "status": "IN_PROGRESS",
+      "department": "Drainage Department",
+      "assigned_to": null,
+      "assigned_worker_name": null,
+      "is_emergency": false,
+      "ai_detection_meta": {
+        "category": "drainage",
+        "confidence": 0.93,
+        "severity": "HIGH",
+        "bounding_boxes": [
+          {
+            "label": "blocked_drain",
+            "confidence": 0.93,
+            "box": [
+              0.28,
+              0.2,
+              0.82,
+              0.8
+            ]
+          }
+        ],
+        "model": "YOLOv8-Civic-v2"
+      },
+      "ai_verification_meta": null,
+      "citizen_feedback": null,
+      "created_at": "2026-11-16T12:20:00.408Z",
+      "updated_at": "2026-11-17T14:52:35.849Z",
+      "resolved_at": null
+    },
+    {
       "id": "CF-1024",
       "user_id": "usr-citizen-1",
       "reporter_name": "Aarav Sharma",
@@ -231,61 +621,6 @@
       "resolved_at": "2026-11-16T22:20:00.408Z"
     },
     {
-      "id": "CF-1026",
-      "user_id": "usr-citizen-1",
-      "reporter_name": "Aarav Sharma",
-      "category": "water_leak",
-      "description": "Major underground pipe burst. Clean drinking water flooding street into residential apartments.",
-      "image_url": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?w=800",
-      "resolution_image_url": null,
-      "latitude": 20.3155,
-      "longitude": 85.8234,
-      "address": "Near Nalco Square, Chandrasekharpur, Bhubaneswar",
-      "zone": "North Zone - Ward 18",
-      "severity": "CRITICAL",
-      "severity_score": 95,
-      "traffic_level": "HIGH",
-      "traffic_score": 80,
-      "nearby_reports_count": 24,
-      "location_importance": "HIGH",
-      "location_score": 90,
-      "priority_score": 93,
-      "priority_breakdown": {
-        "severity_contrib": 38,
-        "traffic_contrib": 20,
-        "reports_contrib": 20,
-        "location_contrib": 13.5
-      },
-      "status": "AI_VERIFIED",
-      "department": "Water Supply Department",
-      "assigned_to": null,
-      "assigned_worker_name": null,
-      "is_emergency": true,
-      "ai_detection_meta": {
-        "category": "water_leak",
-        "confidence": 0.96,
-        "severity": "CRITICAL",
-        "bounding_boxes": [
-          {
-            "label": "water_leak",
-            "confidence": 0.96,
-            "box": [
-              0.25,
-              0.18,
-              0.9,
-              0.88
-            ]
-          }
-        ],
-        "model": "YOLOv8-Civic-v2"
-      },
-      "ai_verification_meta": null,
-      "citizen_feedback": null,
-      "created_at": "2026-11-16T14:20:00.408Z",
-      "updated_at": "2026-11-16T15:20:00.408Z",
-      "resolved_at": null
-    },
-    {
       "id": "CF-1027",
       "user_id": "usr-citizen-1",
       "reporter_name": "Aarav Sharma",
@@ -349,174 +684,129 @@
       "created_at": "2026-11-13T02:20:00.408Z",
       "updated_at": "2026-11-16T16:20:00.408Z",
       "resolved_at": "2026-11-16T02:20:00.408Z"
-    },
-    {
-      "id": "CF-1028",
-      "user_id": "usr-citizen-1",
-      "reporter_name": "Aarav Sharma",
-      "category": "fallen_tree",
-      "description": "Large banyan branch snapped across 2 lanes of traffic following heavy thunderstorm winds.",
-      "image_url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800",
-      "resolution_image_url": null,
-      "latitude": 20.3088,
-      "longitude": 85.8312,
-      "address": "Forest Park Road, Unit 1, Bhubaneswar",
-      "zone": "Central West - Ward 21",
-      "severity": "CRITICAL",
-      "severity_score": 95,
-      "traffic_level": "SEVERE",
-      "traffic_score": 95,
-      "nearby_reports_count": 31,
-      "location_importance": "CRITICAL",
-      "location_score": 90,
-      "priority_score": 94,
-      "priority_breakdown": {
-        "severity_contrib": 38,
-        "traffic_contrib": 23.75,
-        "reports_contrib": 20,
-        "location_contrib": 13.5
-      },
-      "status": "ASSIGNED",
-      "department": "Disaster & Forest",
-      "assigned_to": "usr-worker-1",
-      "assigned_worker_name": "Rajesh Verma (Road Crew Lead)",
-      "is_emergency": true,
-      "ai_detection_meta": {
-        "category": "fallen_tree",
-        "confidence": 0.97,
-        "severity": "CRITICAL",
-        "bounding_boxes": [
-          {
-            "label": "fallen_tree_blockage",
-            "confidence": 0.97,
-            "box": [
-              0.15,
-              0.1,
-              0.85,
-              0.9
-            ]
-          }
-        ],
-        "model": "YOLOv8-Civic-v2"
-      },
-      "ai_verification_meta": null,
-      "citizen_feedback": null,
-      "created_at": "2026-11-16T18:20:00.408Z",
-      "updated_at": "2026-11-16T21:20:00.408Z",
-      "resolved_at": null
-    },
-    {
-      "id": "CF-1029",
-      "user_id": "usr-citizen-1",
-      "reporter_name": "Aarav Sharma",
-      "category": "drainage",
-      "description": "Severely choked stormwater canal overflowing filthy water on pedestrian promenade.",
-      "image_url": "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?w=800",
-      "resolution_image_url": null,
-      "latitude": 20.3201,
-      "longitude": 85.8122,
-      "address": "Damana Square, Patia Main Road, Bhubaneswar",
-      "zone": "North Zone - Ward 6",
-      "severity": "HIGH",
-      "severity_score": 85,
-      "traffic_level": "MEDIUM",
-      "traffic_score": 70,
-      "nearby_reports_count": 14,
-      "location_importance": "HIGH",
-      "location_score": 80,
-      "priority_score": 81,
-      "priority_breakdown": {
-        "severity_contrib": 34,
-        "traffic_contrib": 17.5,
-        "reports_contrib": 17.5,
-        "location_contrib": 12
-      },
-      "status": "REPORTED",
-      "department": "Drainage Department",
-      "assigned_to": null,
-      "assigned_worker_name": null,
-      "is_emergency": false,
-      "ai_detection_meta": {
-        "category": "drainage",
-        "confidence": 0.93,
-        "severity": "HIGH",
-        "bounding_boxes": [
-          {
-            "label": "blocked_drain",
-            "confidence": 0.93,
-            "box": [
-              0.28,
-              0.2,
-              0.82,
-              0.8
-            ]
-          }
-        ],
-        "model": "YOLOv8-Civic-v2"
-      },
-      "ai_verification_meta": null,
-      "citizen_feedback": null,
-      "created_at": "2026-11-16T12:20:00.408Z",
-      "updated_at": "2026-11-16T12:20:00.408Z",
-      "resolved_at": null
-    },
-    {
-      "id": "CF-1030",
-      "user_id": "usr-citizen-1",
-      "reporter_name": "Aarav Sharma",
-      "category": "traffic_signal",
-      "description": "Traffic light stuck on blinking amber at busy 4-way crossroad causing chaotic gridlock.",
-      "image_url": "https://images.unsplash.com/photo-1508873696983-2df5293cb32b?w=800",
-      "resolution_image_url": null,
-      "latitude": 20.2912,
-      "longitude": 85.8285,
-      "address": "Vani Vihar Flyover Junction, Bhubaneswar",
-      "zone": "Central - Ward 11",
-      "severity": "HIGH",
-      "severity_score": 88,
-      "traffic_level": "SEVERE",
-      "traffic_score": 95,
-      "nearby_reports_count": 22,
-      "location_importance": "HIGH",
-      "location_score": 92,
-      "priority_score": 91,
-      "priority_breakdown": {
-        "severity_contrib": 35.2,
-        "traffic_contrib": 23.75,
-        "reports_contrib": 18.5,
-        "location_contrib": 13.8
-      },
-      "status": "ASSIGNED",
-      "department": "Traffic Management",
-      "assigned_to": "usr-worker-3",
-      "assigned_worker_name": "Manoj Patra (Electrical Tech)",
-      "is_emergency": false,
-      "ai_detection_meta": {
-        "category": "traffic_signal",
-        "confidence": 0.95,
-        "severity": "HIGH",
-        "bounding_boxes": [
-          {
-            "label": "traffic_light_malfunction",
-            "confidence": 0.95,
-            "box": [
-              0.12,
-              0.35,
-              0.75,
-              0.65
-            ]
-          }
-        ],
-        "model": "YOLOv8-Civic-v2"
-      },
-      "ai_verification_meta": null,
-      "citizen_feedback": null,
-      "created_at": "2026-11-16T21:20:00.408Z",
-      "updated_at": "2026-11-16T23:20:00.408Z",
-      "resolved_at": null
     }
   ],
   "complaint_logs": [
+    {
+      "id": "log-1794927196779-24",
+      "created_at": "2026-11-17T14:53:16.779Z",
+      "complaint_id": "CF-1030",
+      "action": "CITIZEN_CONFIRMED",
+      "status_from": "RESOLVED",
+      "status_to": "VERIFIED",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Citizen verified resolution. Rating: 5/5. \"Citizen verified repair quality.\""
+    },
+    {
+      "id": "log-1794927192468-898",
+      "created_at": "2026-11-17T14:53:12.468Z",
+      "complaint_id": "CF-6905",
+      "action": "AI_VERIFICATION",
+      "status_from": "REPORTED",
+      "status_to": "AI_VERIFIED",
+      "performed_by_name": "AI Civic Engine (YOLOv8 & DeepVision)",
+      "notes": "AI detected pothole with 96% confidence. Priority calculated: 81/100."
+    },
+    {
+      "id": "log-1794927192467-10",
+      "created_at": "2026-11-17T14:53:12.467Z",
+      "complaint_id": "CF-6905",
+      "action": "REPORTED",
+      "status_from": null,
+      "status_to": "REPORTED",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner) (Citizen)",
+      "notes": "Citizen reported civic issue: \"Deep asphalt crater spanning 1.5 meters on main carriageway....\" with photo and GPS coordinates."
+    },
+    {
+      "id": "log-1794927177427-360",
+      "created_at": "2026-11-17T14:52:57.427Z",
+      "complaint_id": "CF-1030",
+      "action": "AI_RESOLUTION_VERIFIED",
+      "status_from": "RESOLVED",
+      "status_to": "RESOLVED",
+      "performed_by_name": "AI Resolution Verifier",
+      "notes": "AI Verification Confidence: 97%. Signal cycling through green/amber/red sequence with correct phase timing."
+    },
+    {
+      "id": "log-1794927177427-666",
+      "created_at": "2026-11-17T14:52:57.427Z",
+      "complaint_id": "CF-1030",
+      "action": "WORKER_RESOLVED",
+      "status_from": "IN_PROGRESS",
+      "status_to": "RESOLVED",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Resolution proof uploaded: \"Fixed and verified on-site. Defect eliminated.\"."
+    },
+    {
+      "id": "log-1794927157510-188",
+      "created_at": "2026-11-17T14:52:37.510Z",
+      "complaint_id": "CF-1026",
+      "action": "STATUS_CHANGE_TO_IN_PROGRESS",
+      "status_from": "AI_VERIFIED",
+      "status_to": "IN_PROGRESS",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Worker arrived on site and commenced repair."
+    },
+    {
+      "id": "log-1794927155849-460",
+      "created_at": "2026-11-17T14:52:35.849Z",
+      "complaint_id": "CF-1029",
+      "action": "STATUS_CHANGE_TO_IN_PROGRESS",
+      "status_from": "REPORTED",
+      "status_to": "IN_PROGRESS",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Worker arrived on site and commenced repair."
+    },
+    {
+      "id": "log-1794927152774-171",
+      "created_at": "2026-11-17T14:52:32.774Z",
+      "complaint_id": "CF-1028",
+      "action": "STATUS_CHANGE_TO_IN_PROGRESS",
+      "status_from": "ASSIGNED",
+      "status_to": "IN_PROGRESS",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Worker arrived on site and commenced repair."
+    },
+    {
+      "id": "log-1794927151259-157",
+      "created_at": "2026-11-17T14:52:31.259Z",
+      "complaint_id": "CF-1030",
+      "action": "STATUS_CHANGE_TO_IN_PROGRESS",
+      "status_from": "ASSIGNED",
+      "status_to": "IN_PROGRESS",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Worker arrived on site and commenced repair."
+    },
+    {
+      "id": "log-1794927150023-936",
+      "created_at": "2026-11-17T14:52:30.023Z",
+      "complaint_id": "CF-7788",
+      "action": "STATUS_CHANGE_TO_IN_PROGRESS",
+      "status_from": "AI_VERIFIED",
+      "status_to": "IN_PROGRESS",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner)",
+      "notes": "Worker arrived on site and commenced repair."
+    },
+    {
+      "id": "log-1794925307127-284",
+      "created_at": "2026-11-17T14:21:47.127Z",
+      "complaint_id": "CF-7788",
+      "action": "AI_VERIFICATION",
+      "status_from": "REPORTED",
+      "status_to": "AI_VERIFIED",
+      "performed_by_name": "AI Civic Engine (YOLOv8 & DeepVision)",
+      "notes": "AI detected pothole with 90% confidence. Priority calculated: 75/100."
+    },
+    {
+      "id": "log-1794925307127-382",
+      "created_at": "2026-11-17T14:21:47.127Z",
+      "complaint_id": "CF-7788",
+      "action": "REPORTED",
+      "status_from": null,
+      "status_to": "REPORTED",
+      "performed_by_name": "Dr. Sarah Mukherjee (Municipal Commissioner) (Citizen)",
+      "notes": "Citizen reported civic issue: \"Deep asphalt crater spanning 1.5 meters on main carriageway....\" with photo and GPS coordinates."
+    },
     {
       "id": "log-1",
       "complaint_id": "CF-1024",
@@ -559,6 +849,86 @@
     }
   ],
   "notifications": [
+    {
+      "id": "notif-1794927192468-683",
+      "created_at": "2026-11-17T14:53:12.468Z",
+      "is_read": false,
+      "user_id": "usr-admin-1",
+      "complaint_id": "CF-6905",
+      "title": "Complaint Registered & AI Verified",
+      "message": "Your complaint #CF-6905 (pothole) has been verified and routed to Road Maintenance.",
+      "type": "INFO"
+    },
+    {
+      "id": "notif-1794927177428-541",
+      "created_at": "2026-11-17T14:52:57.428Z",
+      "is_read": false,
+      "user_id": "usr-citizen-1",
+      "complaint_id": "CF-1030",
+      "title": "Problem Resolved! Please Confirm",
+      "message": "Your report #CF-1030 (traffic_signal) has been repaired. Please view before/after photos and confirm.",
+      "type": "SUCCESS"
+    },
+    {
+      "id": "notif-1794927157510-210",
+      "created_at": "2026-11-17T14:52:37.510Z",
+      "is_read": false,
+      "user_id": "usr-citizen-1",
+      "complaint_id": "CF-1026",
+      "title": "Complaint Status: IN_PROGRESS",
+      "message": "Your report #CF-1026 is now IN PROGRESS.",
+      "type": "INFO"
+    },
+    {
+      "id": "notif-1794927155849-461",
+      "created_at": "2026-11-17T14:52:35.849Z",
+      "is_read": false,
+      "user_id": "usr-citizen-1",
+      "complaint_id": "CF-1029",
+      "title": "Complaint Status: IN_PROGRESS",
+      "message": "Your report #CF-1029 is now IN PROGRESS.",
+      "type": "INFO"
+    },
+    {
+      "id": "notif-1794927152774-418",
+      "created_at": "2026-11-17T14:52:32.774Z",
+      "is_read": false,
+      "user_id": "usr-citizen-1",
+      "complaint_id": "CF-1028",
+      "title": "Complaint Status: IN_PROGRESS",
+      "message": "Your report #CF-1028 is now IN PROGRESS.",
+      "type": "INFO"
+    },
+    {
+      "id": "notif-1794927151259-73",
+      "created_at": "2026-11-17T14:52:31.259Z",
+      "is_read": false,
+      "user_id": "usr-citizen-1",
+      "complaint_id": "CF-1030",
+      "title": "Complaint Status: IN_PROGRESS",
+      "message": "Your report #CF-1030 is now IN PROGRESS.",
+      "type": "INFO"
+    },
+    {
+      "id": "notif-1794927150023-819",
+      "created_at": "2026-11-17T14:52:30.023Z",
+      "is_read": false,
+      "user_id": "usr-admin-1",
+      "complaint_id": "CF-7788",
+      "title": "Complaint Status: IN_PROGRESS",
+      "message": "Your report #CF-7788 is now IN PROGRESS.",
+      "type": "INFO"
+    },
+    {
+      "id": "notif-1794925307127-702",
+      "created_at": "2026-11-17T14:21:47.127Z",
+      "is_read": false,
+      "user_id": "usr-admin-1",
+      "complaint_id": "CF-7788",
+      "title": "Complaint Registered & AI Verified",
+      "message": "Your complaint #CF-7788 (pothole) has been verified and routed to Road Maintenance.",
+      "type": "INFO"
+    },
     {
       "id": "notif-1",
       "user_id": "usr-citizen-1",

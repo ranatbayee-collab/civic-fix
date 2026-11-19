@@ -46,6 +46,9 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
     const container = mountRef.current;
     if (!container) return;
 
+    const width = container.clientWidth || window.innerWidth || 800;
+    const height = container.clientHeight || (window.innerHeight - 64) || 600;
+
     // 1. Scene setup
     const scene = new THREE.Scene();
     sceneRef.current = scene;
@@ -55,7 +58,7 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
     // 2. Camera setup
     const camera = new THREE.PerspectiveCamera(
       45,
-      container.clientWidth / container.clientHeight,
+      width / height,
       0.1,
       1000
     );
@@ -65,7 +68,7 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
 
     // 3. Renderer setup
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -259,10 +262,13 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
     // 8. Place 3D Problem Beacons
     const problemMeshes = [];
 
+    const centerLat = parseFloat(import.meta.env.VITE_MAP_DEFAULT_LAT || '20.2961');
+    const centerLng = parseFloat(import.meta.env.VITE_MAP_DEFAULT_LNG || '85.8245');
+
     complaints.forEach((comp, idx) => {
-      // Map latitude & longitude into 3D city plane coordinates
-      const normX = ((comp.longitude - 85.81) / 0.035) * 140 - 70;
-      const normZ = ((comp.latitude - 20.285) / 0.04) * 140 - 70;
+      // Map latitude & longitude into 3D city plane coordinates relative to configured center
+      const normX = ((comp.longitude - (centerLng - 0.015)) / 0.035) * 140 - 70;
+      const normZ = ((comp.latitude - (centerLat - 0.011)) / 0.04) * 140 - 70;
       const colorHex = CATEGORY_COLORS[comp.category] || 0xef4444;
 
       const issueGroup = new THREE.Group();
@@ -366,9 +372,11 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
     let isMouseDown = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
+    let dragDistance = 0;
 
     const onMouseDown = (e) => {
       isMouseDown = true;
+      dragDistance = 0;
       prevMouseX = e.clientX;
       prevMouseY = e.clientY;
     };
@@ -379,6 +387,7 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
       if (!isMouseDown) return;
       const deltaX = e.clientX - prevMouseX;
       const deltaY = e.clientY - prevMouseY;
+      dragDistance += Math.abs(deltaX) + Math.abs(deltaY);
       prevMouseX = e.clientX;
       prevMouseY = e.clientY;
 
@@ -395,7 +404,9 @@ export default function City3D({ complaints = [], onSelectComplaint }) {
       camera.position.z = currentLookAt.current.z + radius * Math.sin(phi) * Math.cos(theta);
       camera.lookAt(currentLookAt.current);
 
-      targetCameraPos.current = null; // User manual control overrides automated fly-to
+      if (dragDistance > 6) {
+        targetCameraPos.current = null; // User manual control overrides automated fly-to
+      }
     };
 
     const onWheel = (e) => {

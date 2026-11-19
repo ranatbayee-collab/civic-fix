@@ -1,6 +1,6 @@
 // Frontend API Client for AI CivicFix
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 
 export function getStoredToken() {
   return localStorage.getItem('civicfix_token');

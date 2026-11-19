@@ -12,6 +12,8 @@ const CIVIC_CLASSES = [
   'traffic_signal'
 ];
 
+const AI_SERVICE_BASE = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+
 // Fallback intelligent heuristic computer vision analyzer
 export async function detectProblemFromImage({
   imagePath,
@@ -19,12 +21,12 @@ export async function detectProblemFromImage({
   description = '',
   categoryHint = null
 }) {
-  // First, if an external Python YOLO FastAPI microservice is running on port 8000, query it
+  // First, if an external Python YOLO FastAPI microservice is running, query it
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 1200);
 
-    const pyRes = await fetch('http://localhost:8000/predict', {
+    const pyRes = await fetch(`${AI_SERVICE_BASE}/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ image_url: imageUrl, description, category_hint: categoryHint }),
@@ -154,7 +156,7 @@ export async function verifyResolutionProof({
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 1200);
 
-    const pyRes = await fetch('http://localhost:8000/verify-resolution', {
+    const pyRes = await fetch(`${AI_SERVICE_BASE}/verify-resolution`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ before_image_url: beforeImageUrl, after_image_url: afterImageUrl, category }),

@@ -68,9 +68,12 @@ export default function ReportProblem({ onReportSubmitted, onViewReports }) {
   const [description, setDescription] = useState(SAMPLE_CIVIC_PHOTOS[0].desc);
   const [selectedSampleCat, setSelectedSampleCat] = useState('pothole');
 
-  // GPS coordinates
-  const [latitude, setLatitude] = useState(20.2961);
-  const [longitude, setLongitude] = useState(85.8245);
+  // GPS coordinates from environment config with fallback
+  const defaultLat = parseFloat(import.meta.env.VITE_MAP_DEFAULT_LAT || '20.2961');
+  const defaultLng = parseFloat(import.meta.env.VITE_MAP_DEFAULT_LNG || '85.8245');
+
+  const [latitude, setLatitude] = useState(defaultLat);
+  const [longitude, setLongitude] = useState(defaultLng);
   const [address, setAddress] = useState('Near College Road, Jayadev Vihar, Bhubaneswar');
   const [gpsLoading, setGpsLoading] = useState(false);
 
@@ -146,9 +149,10 @@ export default function ReportProblem({ onReportSubmitted, onViewReports }) {
         setLatitude(lat);
         setLongitude(lng);
 
-        // Reverse geocode
+        // Reverse geocode via environment configured endpoint
+        const nominatimBase = import.meta.env.VITE_NOMINATIM_URL || 'https://nominatim.openstreetmap.org/reverse';
         try {
-          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+          const res = await fetch(`${nominatimBase}?format=json&lat=${lat}&lon=${lng}`)
             .then((r) => r.json())
             .catch(() => null);
 

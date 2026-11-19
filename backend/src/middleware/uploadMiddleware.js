@@ -22,9 +22,11 @@ const storage = multer.diskStorage({
   }
 });
 
+const maxMb = parseInt(process.env.MAX_UPLOAD_SIZE_MB || '10', 10);
+
 export const upload = multer({
   storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+  limits: { fileSize: maxMb * 1024 * 1024 }, // Configured in .env
   fileFilter: (req, file, cb) => {
     if (file.mimetype.startsWith('image/')) {
       cb(null, true);

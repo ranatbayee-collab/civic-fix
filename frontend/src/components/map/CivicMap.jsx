@@ -65,15 +65,20 @@ export default function CivicMap({ complaints = [], onSelectComplaint }) {
     if (!mapContainerRef.current) return;
     if (mapInstanceRef.current) return;
 
-    // Initialize Leaflet map centered at Bhubaneswar Smart City hub
+    // Initialize Leaflet map centered via environment configuration
+    const defaultLat = parseFloat(import.meta.env.VITE_MAP_DEFAULT_LAT || '20.2961');
+    const defaultLng = parseFloat(import.meta.env.VITE_MAP_DEFAULT_LNG || '85.8245');
+    const defaultZoom = parseInt(import.meta.env.VITE_MAP_DEFAULT_ZOOM || '13', 10);
+    const tileUrl = import.meta.env.VITE_OSM_TILE_URL || 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+
     const map = L.map(mapContainerRef.current, {
-      center: [20.2961, 85.8245],
-      zoom: 13,
+      center: [defaultLat, defaultLng],
+      zoom: defaultZoom,
       zoomControl: false
     });
 
     // Dark sleek CartoDB tile layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(tileUrl, {
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
       subdomains: 'abcd',
       maxZoom: 19
@@ -85,7 +90,23 @@ export default function CivicMap({ complaints = [], onSelectComplaint }) {
     markersLayerRef.current = markersGroup;
     mapInstanceRef.current = map;
 
+    // Invalidate size to ensure crisp rendering after layout pass
+    const timer = setTimeout(() => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.invalidateSize();
+      }
+    }, 250);
+
+    const handleResize = () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.invalidateSize();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
     return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
       map.remove();
       mapInstanceRef.current = null;
     };
