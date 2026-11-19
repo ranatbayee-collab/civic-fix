@@ -1,0 +1,6 @@
+# Full GPU/Local requirements for custom YOLOv8 model training and execution
+# Use this for Docker, Render, Cloud Run, or local machines:
+-r requirements.txt
+numpy>=1.26.0
+opencv-python-headless>=4.9.0
+ultralytics>=8.1.0
