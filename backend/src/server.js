@@ -25,8 +25,10 @@ app.use(cors({ origin: CLIENT_URL && CLIENT_URL !== '*' ? CLIENT_URL.split(',') 
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
-// Static uploads directory
-const uploadsPath = path.join(__dirname, '../uploads');
+// Static uploads directory (supports ephemeral /tmp when running in serverless environments)
+const uploadsPath = process.env.VERCEL
+  ? path.join('/tmp', 'uploads')
+  : path.join(__dirname, '../uploads');
 app.use('/uploads', express.static(uploadsPath));
 
 // Health check
@@ -55,18 +57,22 @@ app.use((err, req, res, next) => {
   });
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`\n======================================================`);
-  console.log(`🚀 AI CivicFix Backend running at: http://localhost:${PORT}`);
-  console.log(`📡 Health Check: http://localhost:${PORT}/api/health`);
-  console.log(`📊 AI & Computer Vision Service: Active`);
-  console.log(`======================================================\n`);
-});
+if (!process.env.VERCEL) {
+  const server = app.listen(PORT, () => {
+    console.log(`\n======================================================`);
+    console.log(`🚀 AI CivicFix Backend running at: http://localhost:${PORT}`);
+    console.log(`📡 Health Check: http://localhost:${PORT}/api/health`);
+    console.log(`📊 AI & Computer Vision Service: Active`);
+    console.log(`======================================================\n`);
+  });
 
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`⚠️ Port ${PORT} is already in use by another process.`);
-  } else {
-    console.error('Server unexpected error:', err);
-  }
-});
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`⚠️ Port ${PORT} is already in use by another process.`);
+    } else {
+      console.error('Server unexpected error:', err);
+    }
+  });
+}
+
+export default app;

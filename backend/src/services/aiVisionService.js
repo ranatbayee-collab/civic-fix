@@ -12,7 +12,13 @@ const CIVIC_CLASSES = [
   'traffic_signal'
 ];
 
-const AI_SERVICE_BASE = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+// Helper to resolve AI microservice endpoint dynamically at runtime from bound service environment
+function getAiServiceUrl(endpoint) {
+  const base = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+  return new URL(cleanPath, cleanBase).toString();
+}
 
 // Fallback intelligent heuristic computer vision analyzer
 export async function detectProblemFromImage({
@@ -21,12 +27,14 @@ export async function detectProblemFromImage({
   description = '',
   categoryHint = null
 }) {
-  // First, if an external Python YOLO FastAPI microservice is running, query it
+  // First, if an external Python YOLO FastAPI microservice is running (via Vercel service binding or local), query it
   try {
+    const targetUrl = getAiServiceUrl('predict');
+    const timeoutMs = parseInt(process.env.AI_SERVICE_TIMEOUT_MS || '5000', 10);
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 1200);
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
-    const pyRes = await fetch(`${AI_SERVICE_BASE}/predict`, {
+    const pyRes = await fetch(targetUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ image_url: imageUrl, description, category_hint: categoryHint }),
@@ -151,12 +159,14 @@ export async function verifyResolutionProof({
   category,
   notes = ''
 }) {
-  // Query standalone Python service if active
+  // Query standalone Python service if active (via Vercel service binding or local)
   try {
+    const targetUrl = getAiServiceUrl('verify-resolution');
+    const timeoutMs = parseInt(process.env.AI_SERVICE_TIMEOUT_MS || '5000', 10);
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 1200);
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
-    const pyRes = await fetch(`${AI_SERVICE_BASE}/verify-resolution`, {
+    const pyRes = await fetch(targetUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ before_image_url: beforeImageUrl, after_image_url: afterImageUrl, category }),

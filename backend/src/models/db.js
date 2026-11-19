@@ -5,10 +5,22 @@ import bcrypt from 'bcryptjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DB_FILE = path.join(__dirname, '../../data/civicfix.json');
+const SEED_FILE = path.join(__dirname, '../../data/civicfix.json');
+const DB_FILE = process.env.VERCEL
+  ? path.join('/tmp', 'civicfix.json')
+  : SEED_FILE;
 
 // Initialize database with realistic seed data if not present
 function initializeDatabase() {
+  // If running in serverless environment, copy bundled seeds to writable /tmp
+  if (process.env.VERCEL && !fs.existsSync(DB_FILE) && fs.existsSync(SEED_FILE)) {
+    try {
+      fs.writeFileSync(DB_FILE, fs.readFileSync(SEED_FILE, 'utf8'), 'utf8');
+    } catch (e) {
+      console.warn('Could not initialize /tmp/civicfix.json:', e.message);
+    }
+  }
+
   if (fs.existsSync(DB_FILE)) {
     try {
       const data = JSON.parse(fs.readFileSync(DB_FILE, 'utf8'));
